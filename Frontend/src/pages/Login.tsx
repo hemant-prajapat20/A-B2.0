@@ -6,6 +6,7 @@ import {
   Lock, 
   Zap, 
   ArrowRight,
+  ArrowLeft,
   Fingerprint,
   Info,
   ShieldCheck,
@@ -49,7 +50,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9]  flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#F1F5F9]  flex items-center justify-center p-4 relative">
+      {/* 🔙 Back to Landing Protocol */}
+      <button 
+        onClick={() => navigate('/')} 
+        className="absolute top-6 left-6 p-2 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-slate-900 transition-all shadow-sm active:scale-95 group"
+        title="Back to Landing"
+      >
+        <ArrowLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
+      </button>
+
       <div className="w-full max-w-[340px] bg-white border border-slate-100 rounded-2xl shadow-xl p-6 animate-in fade-in zoom-in duration-500">
         <div className="flex flex-col items-center mb-6">
           <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white shadow-lg mb-4 rotate-3 group scale-150 transform transition-transform hover:rotate-0 relative">

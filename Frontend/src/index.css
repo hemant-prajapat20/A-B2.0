@@ -230,10 +230,9 @@ body.modal-open-nexus .sidebar {
 /* ── Mobile Native Feeling Hardening ── */
 @layer base {
   html, body {
-    /* Prevent rubber-band scrolling on iOS but maintain smooth scrolling */
-    overscroll-behavior-y: none;
+    /* Maintain smooth scrolling and prevent horizontal drift */
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation; /* Disables double-tap to zoom */
+    touch-action: auto; 
     overflow-x: hidden;
   }
 

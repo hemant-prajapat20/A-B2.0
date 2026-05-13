@@ -179,8 +179,8 @@ const App = () => {
                   </ProtectedRoute>
                 } />
 
-                {/* Fallback */}
-                <Route path="*" element={<Navigate to="/dashboard" replace />} />
+                {/* Fallback to Landing */}
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </Suspense>
           </MobileAppWrapper>

@@ -58,7 +58,7 @@ export const MobileAppWrapper: React.FC<MobileAppWrapperProps> = ({ children }) 
     },
     trackMouse: false, // Only touch events for mobile authenticity
     delta: 50, // Minimum swipe distance
-    preventScrollOnSwipe: true,
+    preventScrollOnSwipe: false,
   });
 
   return (
