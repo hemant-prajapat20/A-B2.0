@@ -108,7 +108,7 @@ export default function B2BSales() {
     }, [filteredInvoices, showAll]);
 
     return (
-        <div className="p-1 sm:p-3 space-y-2 bg-[#FDFDFF] font-inter min-h-screen">
+        <div className="p-3 sm:p-4 space-y-4 bg-[#FDFDFF] font-inter min-h-screen">
             {/* Header Module */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-1">
                 <div>
@@ -131,8 +131,7 @@ export default function B2BSales() {
                 </div>
             </div>
 
-            {/* Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                 <MetricCard
                     label="TOTAL RECEIVABLES"
                     value={`₹${stats.total.toLocaleString()}`}
@@ -166,12 +165,12 @@ export default function B2BSales() {
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
-                    <div className="flex bg-slate-50 p-1 rounded-xl">
+                    <div className="flex bg-slate-50 p-1 rounded-xl overflow-x-auto no-scrollbar">
                         {['All', 'Paid', 'Pending', 'Overdue'].map((filter) => (
                             <button
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
-                                className={`px-5 py-2 rounded-lg text-xs font-semibold transition-all ${activeFilter === filter
+                                className={`px-4 sm:px-5 py-2 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${activeFilter === filter
                                     ? 'bg-white text-indigo-600 shadow-sm'
                                     : 'text-slate-500 hover:text-slate-700'
                                     }`}
@@ -303,13 +302,13 @@ const MetricCard = memo(({ label, value, icon: Icon, color }: any) => {
     const v = variants[color] || variants.blue;
 
     return (
-        <div className={`${v.bg} p-6 rounded-2xl border border-slate-100 flex items-center gap-4 shadow-sm h-full`}>
-            <div className={`${v.iconBg} w-11 h-11 rounded-xl flex items-center justify-center shadow-sm shrink-0`}>
+        <div className={`${v.bg} p-4 sm:p-6 rounded-2xl border border-slate-100 flex items-center gap-3 sm:gap-4 shadow-sm h-full overflow-hidden`}>
+            <div className={`${v.iconBg} w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shadow-sm shrink-0`}>
                 <Icon size={18} className={v.icon} />
             </div>
-            <div className="min-w-0">
-                <p className={`${v.text} text-[9px] font-black uppercase tracking-widest opacity-60 mb-0.5`}>{label}</p>
-                <h3 className="text-xl font-semibold text-slate-900 tracking-tight truncate">{value}</h3>
+            <div className="min-w-0 flex-1">
+                <p className={`${v.text} text-[9px] font-black uppercase tracking-widest opacity-60 mb-0.5 truncate`}>{label}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-tight truncate" title={value}>{value}</h3>
             </div>
         </div>
     );
